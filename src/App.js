@@ -1,25 +1,41 @@
-import logo from './logo.svg';
+import { useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
+import Posts_page from './Posts_page'
+import axios from 'axios';
+import Home from './Home';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [authenticated, setAuthenticated] = useState(false);
+  const [username, setUsername] = useState('');
+  useEffect(() => {
+    const fetchAuthenticationStatus = async () => {
+        try {
+            const response = await axios.get('http://127.0.0.1:8000/api/check_auth/').then(function (response) {
+            setAuthenticated(response.data.authenticated);
+            console.log(response)
+            if (response.data.authenticated) {
+                setUsername(response.data.username);
+                console.log(username)
+            }
+            }).catch(function (error) {
+              console.log(error);
+            });
+            
+        } catch (error) {
+            console.error('Error fetching authentication status:', error);
+        }
+    };
+
+    fetchAuthenticationStatus();
+}, []);
+  if(authenticated){
+    return(<Posts_page/>)
+  }
+  else{
+    return(<Home/>)
+  }
 }
 
 export default App;
