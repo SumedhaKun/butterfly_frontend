@@ -3,8 +3,10 @@
 import React, { useState } from 'react';
 import Navbar from './Navbar';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     username: '',
@@ -13,16 +15,31 @@ const Register = () => {
   });
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { id, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [id]: value
+    }));
   };
 
   const handleRegister = async(e) => {
     e.preventDefault();
-        await axios.post("http://127.0.0.1:8000/api/register/",formData).then(function (response) {
+    const link="https://71c6-2600-1700-78ee-290-54ac-a7a2-bd8d-4fd0.ngrok-free.app/api"
+
+        await axios.post(link+"/register/",formData).then(function (response) {
             console.log(response);
           }).catch(function (error) {
             console.log(error);
           });
+        await axios.post(link+"/login/",{"username":formData.username, "password":formData.password}).then(function (response) {
+          navigate('/posts_page')
+          localStorage.setItem('token', response.data.token);
+        }).catch(function (error) {
+          console.log(error);
+        });
+          
+
+
   };
 
   return (

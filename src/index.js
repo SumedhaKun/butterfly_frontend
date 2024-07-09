@@ -9,18 +9,20 @@ import reportWebVitals from './reportWebVitals';
 import Home from './Home';
 import { BrowserRouter } from 'react-router-dom';
 import Posts_Page from './Posts_page';
+import Profile from './Profile';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <Router>
     <Routes>
         <Route path="/" element={<App />} />
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/posts_page" element={<Posts_Page />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
-    </BrowserRouter>
+    </Router>
   </React.StrictMode>
 );
 

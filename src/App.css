@@ -101,3 +101,23 @@
     transform: rotate(360deg);
   }
 }
+/* Profile.css */
+
+.profile-container {
+  padding: 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.profile-container h2 {
+  color: #333;
+}
+
+.profile-container p {
+  font-size: 14px;
+  color: #666;
+}
