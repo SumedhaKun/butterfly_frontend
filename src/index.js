@@ -10,6 +10,8 @@ import Home from './Home';
 import { BrowserRouter } from 'react-router-dom';
 import Posts_Page from './Posts_page';
 import Profile from './Profile';
+import Post from './Post';
+import Comments_page from './Comments';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -21,6 +23,8 @@ root.render(
         <Route path="/register" element={<Register />} />
         <Route path="/posts_page" element={<Posts_Page />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/post" element={<Post />} />
+        <Route path="/Comments_page" element={<Comments_page />} />
       </Routes>
     </Router>
   </React.StrictMode>

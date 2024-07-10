@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Create an Axios instance with default configuration
 const axiosInstance = axios.create({
-  baseURL: "https://71c6-2600-1700-78ee-290-54ac-a7a2-bd8d-4fd0.ngrok-free.app/api", // Replace with your backend URL
+  baseURL: "https://7dbd-2600-1700-78ee-290-fdc8-4c26-ae36-f4ba.ngrok-free.app/api", // Replace with your backend URL
   withCredentials: true, // Ensure credentials are included (cookies, etc.)
 });
 //axios.defaults.xsrfCookieName = 'csrftoken';
