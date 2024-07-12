@@ -24,7 +24,7 @@ const Register = () => {
 
   const handleRegister = async(e) => {
     e.preventDefault();
-    const link="https://7dbd-2600-1700-78ee-290-fdc8-4c26-ae36-f4ba.ngrok-free.app/api"
+    const link="https://butterfly-backend.onrender.com/api"
 
         await axios.post(link+"/register/",formData).then(function (response) {
             console.log(response);

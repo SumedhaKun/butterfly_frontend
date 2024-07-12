@@ -11,7 +11,7 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-          axios.post("https://7dbd-2600-1700-78ee-290-fdc8-4c26-ae36-f4ba.ngrok-free.app/api/login/",{"username":username, "password":password}).then(function (response) {
+          axios.post("https://butterfly-backend.onrender.com/api/login/",{"username":username, "password":password}).then(function (response) {
             console.log(response);
             navigate('/posts_page')
             console.log(response.data.token)
