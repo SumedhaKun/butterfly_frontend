@@ -4,7 +4,7 @@ import axiosInstance from './axiosInstance';
 import Navbar from './Navbar';
 import { useNavigate } from 'react-router-dom';
 
-function Posts_page() {
+function PostsPage() {
   const [components, setComponents] = useState([]);
   const navigate = useNavigate();
 
@@ -39,4 +39,4 @@ function Posts_page() {
   );
 }
 
-export default Posts_page;
+export default PostsPage;

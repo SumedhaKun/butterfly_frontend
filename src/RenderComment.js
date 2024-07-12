@@ -1,10 +1,8 @@
 import React from 'react';
 import axiosInstance from './axiosInstance';
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 const RenderComment = ({ item }) => {
     const [username, setUsername] = useState('');
-    const navigate=useNavigate()
     try{
         const fetchData = async () => {
         if(item.user){const res = await axiosInstance.get("/user/"+item.user+"/")
@@ -16,7 +14,7 @@ const RenderComment = ({ item }) => {
 
     const updateLikes=async (e)=>{
         e.preventDefault();
-        const res = await axiosInstance.patch("/likes/comment/"+item.pk+"/")
+        await axiosInstance.patch("/likes/comment/"+item.pk+"/")
         window.location.reload(false);
       }
 

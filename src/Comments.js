@@ -5,7 +5,7 @@ import Navbar from './Navbar';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 
-function Comments_page() {
+function CommentsPage() {
     const { state } = useLocation();
   const [components, setComponents] = useState([]);
   const [content, setContent] = useState([]);
@@ -18,12 +18,12 @@ function Comments_page() {
     };
 
     fetchData();
-  }, []);
+  });
   const createComment= async(e)=>{
     e.preventDefault();
     let date = new Date()
     date=date.toISOString().split('T')[0]
-    const response=await axiosInstance.post('/comment/',{"content":content, "date":date, "pk":state.pk})
+    await axiosInstance.post('/comment/',{"content":content, "date":date, "pk":state.pk})
     window.location.reload(false);
   }
   const goBack= async(e)=>{
@@ -58,4 +58,4 @@ function Comments_page() {
   );
 }
 
-export default Comments_page;
+export default CommentsPage;

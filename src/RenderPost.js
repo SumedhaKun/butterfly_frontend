@@ -1,6 +1,5 @@
 import React from 'react';
 import axiosInstance from './axiosInstance';
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
@@ -18,11 +17,11 @@ const RenderPost = ({ item }) => {
           }
         }
         fetchData()
-    }, []);
+    });
 
     const updateLikes=async (e)=>{
         e.preventDefault();
-        const res = await axiosInstance.patch("/likes/post/"+item.pk+"/")
+        await axiosInstance.patch("/likes/post/"+item.pk+"/")
         window.location.reload(false);
       }
     
@@ -41,7 +40,7 @@ const RenderPost = ({ item }) => {
         </Link>
         <p>Date: {item.date}</p>
         <p>{item.data}</p>
-        <img src={item.image} alt="No Image" />
+        <img src={item.image} alt=''/>
         <p>{item.caption}</p>
         <button className="like-button" onClick={updateLikes}>
       <FontAwesomeIcon icon={faThumbsUp} style={{ marginRight: '5px' }} />

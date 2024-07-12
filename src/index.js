@@ -2,16 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { BrowserRouter as Router, Routes, Route,useRoutes } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './Login';
 import Register from './Register';
 import reportWebVitals from './reportWebVitals';
 import Home from './Home';
-import { BrowserRouter } from 'react-router-dom';
-import Posts_Page from './Posts_page';
+import PostsPage from './PostsPage';
 import Profile from './Profile';
 import Post from './Post';
-import Comments_page from './Comments';
+import CommentsPage from './Comments';
 import OtherProfile from './OtherProfile';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -22,10 +21,10 @@ root.render(
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/posts_page" element={<Posts_Page />} />
+        <Route path="/posts_page" element={<PostsPage />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/post" element={<Post />} />
-        <Route path="/Comments_page" element={<Comments_page />} />
+        <Route path="/Comments_page" element={<CommentsPage />} />
         <Route path="/Other_profile" element={<OtherProfile />} />
       </Routes>
     </Router>

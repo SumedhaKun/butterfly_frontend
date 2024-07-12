@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 import axiosInstance from './axiosInstance';
 import RenderPost from './RenderPost';
 
-import { useNavigate, useLocation } from 'react-router-dom';
+import {useLocation } from 'react-router-dom';
 const OtherProfile = () => {
   const { state } = useLocation();
   const [components, setComponents] = useState([]);
@@ -11,7 +11,6 @@ const OtherProfile = () => {
   const [followers, sestFollowers] = useState([]);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchDetails = async () => {
@@ -24,11 +23,11 @@ const OtherProfile = () => {
       sestFollowers(response.data.followers)
     };
     fetchDetails();
-}, []);
+});
 
 const follow=async (e)=>{
     e.preventDefault();
-    const res=await axiosInstance.patch('/follow/'+state.item.user+"/")
+    await axiosInstance.patch('/follow/'+state.item.user+"/")
     window.location.reload(false);
   }
 
