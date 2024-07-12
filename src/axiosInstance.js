@@ -18,7 +18,7 @@ axiosInstance.interceptors.request.use(
       //config.headers['X-CSRFToken'] = csrftoken;  // Set CSRF token in request headers
     }
     
-    config.headers["ngrok-skip-browser-warning"]="69420";
+    config.headers["ngrok-skip-browser-warning"]="797979";
     if (token) {
       console.log(token)
       config.headers['authorization'] = `Bearer ${token}`;

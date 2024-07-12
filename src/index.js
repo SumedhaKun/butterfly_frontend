@@ -12,6 +12,7 @@ import Posts_Page from './Posts_page';
 import Profile from './Profile';
 import Post from './Post';
 import Comments_page from './Comments';
+import OtherProfile from './OtherProfile';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -25,6 +26,7 @@ root.render(
         <Route path="/profile" element={<Profile />} />
         <Route path="/post" element={<Post />} />
         <Route path="/Comments_page" element={<Comments_page />} />
+        <Route path="/Other_profile" element={<OtherProfile />} />
       </Routes>
     </Router>
   </React.StrictMode>

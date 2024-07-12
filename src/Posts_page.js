@@ -12,7 +12,6 @@ function Posts_page() {
     const fetchData = async () => {
       const response = await axiosInstance.get('/posts/');
       setComponents(response.data)
-      console.log(components[0])
     };
 
     fetchData();
@@ -23,10 +22,11 @@ function Posts_page() {
   }
 
   return (
-    <div>
-        <Navbar/>
+    <>
+    <Navbar />
+    <div className="container" style={{ backgroundColor: 'lightblue' }}>
       <h1>Butterfly</h1>
-      <ul>
+      <ul className="post-list">
         {components.map((component) => (
           <li key={component.pk}>
             <RenderPost item={component} /> {/* Render your component for each item */}
@@ -35,6 +35,7 @@ function Posts_page() {
       </ul>
       <button onClick={createPost}>Create Post</button>
     </div>
+  </>
   );
 }
 

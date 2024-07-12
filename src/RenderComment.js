@@ -23,13 +23,15 @@ const RenderComment = ({ item }) => {
        
     
     return (
-      <div>
-        <p>User: {username}</p>
-        <p>Date: {item.date}</p>
-        <p>{item.content}</p>
-        <p>Likes: {item.likes}</p>
-        <button onClick={updateLikes}>Add Like</button>
-      </div>
+      <div className="comment-container">
+      <p className="comment-user">User: {username}</p>
+      <p className="comment-date">Date: {item.date}</p>
+      <p className="comment-content">{item.content}</p>
+      <p className="comment-likes">Likes: {item.likes}</p>
+      <button className="like-button" onClick={updateLikes}>
+        Add Like
+      </button>
+    </div>
     );
   }
 export default RenderComment;

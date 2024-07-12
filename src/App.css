@@ -13,7 +13,53 @@
   align-items: center;
 }
 
+.post-container {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding-right: 50px;
+  padding-left: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle box-shadow */
+}
 
+.post-container h3 {
+  margin-top: 0; /* Remove default margin for h3 */
+}
+
+.post-container p {
+  margin: 5px 0;
+}
+
+.post-container button {
+  margin-top: 10px;
+}
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center; /* Center text within the container */
+}
+
+.container h1 {
+  margin-bottom: 20px; /* Example: Add some spacing below the heading */
+}
+
+.post-list {
+  list-style-type: none; /* Remove default list-style (bullet points) */
+  padding: 0; /* Remove default padding */
+}
+
+.post-list li {
+  margin-bottom: 20px; /* Optional: Add spacing between list items */
+}
+
+.container h1 {
+  margin-bottom: 20px; /* Example: Add some margin below the heading */
+}
 
 .navbar-logo h2 {
   margin: 0;
