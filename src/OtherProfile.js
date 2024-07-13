@@ -21,8 +21,8 @@ const OtherProfile = () => {
       const response2 = await axiosInstance.get('/posts/user/'+state.item.user); 
       setComponents(response2.data)
       console.log(response2.data)
-      // setFollowing(response.data.following)
-      // sestFollowers(response.data.followers)
+      setFollowing(response.data.following)
+      sestFollowers(response.data.followers)
     };
     fetchDetails();
 });
@@ -53,7 +53,7 @@ const follow=async (e)=>{
       <ul>
         {followers.map((follower) => (
           <li>
-            {/* <p>{follower}</p> Render your component for each item */}
+            <p>{follower.username}</p> 
           </li>
         ))}
       </ul>
@@ -61,7 +61,7 @@ const follow=async (e)=>{
       <ul>
         {following.map((follow) => (
           <li>
-            {/* <p>{follow.username}</p> Render your component for each item */}
+            { <p>{follow.username}</p> }
           </li>
         ))}
       </ul>
