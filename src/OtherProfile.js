@@ -51,7 +51,7 @@ const follow=async (e)=>{
       <ul>
         {followers.map((follower) => (
           <li>
-            <p>{follower.username}</p> {/* Render your component for each item */}
+            {/* <p>{follower}</p> Render your component for each item */}
           </li>
         ))}
       </ul>
@@ -59,7 +59,7 @@ const follow=async (e)=>{
       <ul>
         {following.map((follow) => (
           <li>
-            <p>{follow.username}</p> {/* Render your component for each item */}
+            {/* <p>{follow.username}</p> Render your component for each item */}
           </li>
         ))}
       </ul>
