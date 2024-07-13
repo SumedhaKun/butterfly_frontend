@@ -8,7 +8,7 @@ const OtherProfile = () => {
   const { state } = useLocation();
   const [components, setComponents] = useState([]);
   const [following, setFollowing] = useState([]);
-  const [followers, sestFollowers] = useState([]);
+  const [followers, setFollowers] = useState([]);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
 
@@ -22,7 +22,7 @@ const OtherProfile = () => {
       setComponents(response2.data)
       console.log(response2.data)
       setFollowing(response.data.following)
-      sestFollowers(response.data.followers)
+      setFollowers(response.data.followers)
     };
     fetchDetails();
 });
@@ -43,7 +43,7 @@ const follow=async (e)=>{
     </div>
     <h1>Posts</h1>
     <ul>
-        {components.map((component) => (
+        {components && components.map((component) => (
           <li key={component.pk}>
             <RenderPost item={component} /> {/* Render your component for each item */}
           </li>
@@ -51,7 +51,7 @@ const follow=async (e)=>{
       </ul>
       <p>Followers:</p>
       <ul>
-        {followers.map((follower) => (
+        {followers && followers.map((follower) => (
           <li>
             <p>{follower.username}</p> 
           </li>
@@ -59,7 +59,7 @@ const follow=async (e)=>{
       </ul>
       <p>Following:</p>
       <ul>
-        {following.map((follow) => (
+        {following && following.map((follow) => (
           <li>
             { <p>{follow.username}</p> }
           </li>
