@@ -15,12 +15,14 @@ const OtherProfile = () => {
   useEffect(() => {
     const fetchDetails = async () => {
       const response = await axiosInstance.get('/user/'+state.item.user); 
+      console.log(response.data.username)
       setUsername(response.data.username)
       setEmail(response.data.email)
       const response2 = await axiosInstance.get('/posts/user/'+state.item.user); 
       setComponents(response2.data)
-      setFollowing(response.data.following)
-      sestFollowers(response.data.followers)
+      console.log(response2.data)
+      // setFollowing(response.data.following)
+      // sestFollowers(response.data.followers)
     };
     fetchDetails();
 });
