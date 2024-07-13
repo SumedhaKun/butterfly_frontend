@@ -22,7 +22,7 @@ function Post() {
         const res=await axiosInstance.post("/posts/",formData)
         if(selectedFile){
           const image=res.data.image
-          const res2=await axios.post("http://localhost:9000/caption/",{"image":image});
+          //const res2=await axios.post("http://localhost:9000/caption/",{"image":image});
           //await axiosInstance.patch("/caption/"+res.data.pk+"/",{"caption":res2.data.caption})
         }
         navigate('/posts_page')      

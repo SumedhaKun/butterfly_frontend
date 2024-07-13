@@ -11,12 +11,17 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-          axios.post("https://butterfly-backend.onrender.com/api/login/",{"username":username, "password":password}).then(function (response) {
+          const res=axios.post("https://butterfly-backend.onrender.com/api/login/",{"username":username, "password":password}).then(function (response) {
             console.log(response);
             navigate('/posts_page')
             console.log(response.data.token)
             localStorage.setItem('token', response.data.token);
           })
+
+          if(res.status===400){
+            alert('incorrect password or username')
+          }
+
           
   };
 
