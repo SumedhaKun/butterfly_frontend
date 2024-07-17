@@ -4,6 +4,7 @@ import axiosInstance from './axiosInstance';
 import RenderPost from './RenderPost';
 
 import {useLocation } from 'react-router-dom';
+import { useLogout } from './utils';
 const OtherProfile = () => {
   const { state } = useLocation();
   const [components, setComponents] = useState([]);
@@ -11,10 +12,18 @@ const OtherProfile = () => {
   const [followers, setFollowers] = useState([]);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
+  const logout=useLogout()
 
   useEffect(() => {
     const fetchDetails = async () => {
-      const response = await axiosInstance.get('/user/'+state.item.user); 
+      const response = await axiosInstance.get('/user/'+state.item.user).catch(error => {
+        if (error.response && error.response.status === 401) {
+            console.error('Unauthorized access. Please log in.');
+            logout()
+        } else {
+            console.error('An error occurred:', error.message);
+        }
+    });; 
       console.log(response.data.username)
       setUsername(response.data.username)
       setEmail(response.data.email)

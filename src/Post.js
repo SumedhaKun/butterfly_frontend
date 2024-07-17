@@ -4,11 +4,13 @@ import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 function Post() {
     const [data, setData] = useState('');
+    const [loading, setLoading] = useState(false);
     const [title, setTitle] = useState('');
     const [selectedFile, setSelectedFile] = useState(null);
     const navigate = useNavigate();
 
     const handlePost = async(e) => {
+        setLoading(true)
         e.preventDefault();
         let date = new Date()
         date=date.toISOString().split('T')[0]
@@ -29,6 +31,7 @@ function Post() {
           });
           await axiosInstance.patch("/caption/"+res.data.pk+"/",{"caption":res2.data.caption})
         }
+        setLoading(false)
         navigate('/posts_page')      
       };
       const goBack = (e) => {
@@ -56,11 +59,11 @@ function Post() {
           id="data"
           value={data}
           onChange={(e) => setData(e.target.value)}
-          required
         />
          <input type="file" onChange={handleFileChange}/>
         <button type="submit">Post</button>
       </form>
+      {loading && <p>Loading...</p>}
       <button onClick={goBack}>back</button>
     </div>
   )

@@ -70,7 +70,6 @@ input:focus {
 
 .login {
   padding: 15px;
-  background-color: #007BFF;
   color: white;
   border: none;
   border-radius: 5px;
@@ -186,7 +185,30 @@ input:focus {
   cursor: pointer;
   transition: background-color 0.3s;
 }
+.register-container {
+  display: flex;
+  background-color: #f7f3ee;
+  flex-direction: column;
+  align-items: center;  /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  height: 100vh; /* Full viewport height */
+  text-align: center; /* Center text */
+}
+.centered-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  text-align: center;  /* Center text */
+}
 
+ul {
+  list-style-type: none; /* Remove default list styling */
+  padding: 0;
+}
+
+li {
+  margin: 2px 0; /* Space between list items */
+}
 .btn-login:hover, .btn-register:hover {
   background-color: #45a049;
 }

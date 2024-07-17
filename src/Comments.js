@@ -18,13 +18,13 @@ function CommentsPage() {
     };
 
     fetchData();
-  });
+  },[content,state.pk]);
   const createComment= async(e)=>{
     e.preventDefault();
     let date = new Date()
     date=date.toISOString().split('T')[0]
     await axiosInstance.post('/comment/',{"content":content, "date":date, "pk":state.pk})
-    window.location.reload(false);
+    setContent("")
   }
   const goBack= async(e)=>{
     e.preventDefault();

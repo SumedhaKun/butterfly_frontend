@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 const RenderPost = ({ item }) => {
     const [username, setUsername] = useState('');
-
+    const [likes, setLikes]=useState(item.likes)
     const navigate=useNavigate()
 
     useEffect(() => {
@@ -22,7 +22,7 @@ const RenderPost = ({ item }) => {
     const updateLikes=async (e)=>{
         e.preventDefault();
         await axiosInstance.patch("/likes/post/"+item.pk+"/")
-        window.location.reload(false);
+        setLikes(likes+1)
       }
     
     const goToComments=(e)=>{
@@ -44,7 +44,7 @@ const RenderPost = ({ item }) => {
         <p>{item.caption}</p>
         <button className="like-button" onClick={updateLikes}>
       <FontAwesomeIcon icon={faThumbsUp} style={{ marginRight: '5px' }} />
-      {item.likes}
+      {likes}
     </button>
         <button onClick={goToComments}>Comments</button>
       </div>

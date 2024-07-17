@@ -3,19 +3,26 @@ import RenderPost from './RenderPost';
 import axiosInstance from './axiosInstance';
 import Navbar from './Navbar';
 import { useNavigate } from 'react-router-dom';
+import { useLogout } from './utils';
 
 function PostsPage() {
   const [components, setComponents] = useState([]);
   const navigate = useNavigate();
+  const logout=useLogout();
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axiosInstance.get('/posts/');
+      const response = await axiosInstance.get('/posts/').catch(error => {
+        if (error.response && error.response.status === 401) {
+            console.error('Unauthorized access. Please log in.');
+            logout()
+        }
+    });
       setComponents(response.data)
     };
 
     fetchData();
-  }, []);
+  });
   const createPost= (e)=>{
     e.preventDefault();
     navigate('/Post')

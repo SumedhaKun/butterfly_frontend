@@ -43,30 +43,32 @@ const Register = () => {
   };
 
   return (
+    <>
+    <Navbar/>
     <div className="register-container">
-        <Navbar/>
+    <img src="/logo.png" alt="Logo" className="logo" />
       <h2>Register</h2>
       <form onSubmit={handleRegister}>
-        <label htmlFor="username">Username:</label>
         <input
           type="text"
           id="username"
           value={formData.username}
+          placeholder="Enter username"
           onChange={handleChange}
           required
         />
-        <label htmlFor="email">Email:</label>
         <input
           type="email"
           id="email"
           value={formData.email}
+          placeholder="Enter email"
           onChange={handleChange}
           required
         />
-        <label htmlFor="password">Password:</label>
         <input
           type="password"
           id="password"
+          placeholder="Enter password"
           value={formData.password}
           onChange={handleChange}
           required
@@ -74,6 +76,7 @@ const Register = () => {
         <button type="submit">Register</button>
       </form>
     </div>
+    </>
   );
 }
 
