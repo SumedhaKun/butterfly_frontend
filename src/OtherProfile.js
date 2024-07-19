@@ -8,8 +8,6 @@ import { useLogout } from './utils';
 const OtherProfile = () => {
   const { state } = useLocation();
   const [components, setComponents] = useState([]);
-  const [following, setFollowing] = useState([]);
-  const [followers, setFollowers] = useState([]);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const logout=useLogout()
@@ -30,8 +28,6 @@ const OtherProfile = () => {
       const response2 = await axiosInstance.get('/posts/user/'+state.item.user); 
       setComponents(response2.data)
       console.log(response2.data)
-      setFollowing(response.data.following)
-      setFollowers(response.data.followers)
     };
     fetchDetails();
 });
