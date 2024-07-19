@@ -2,6 +2,7 @@ import axiosInstance from "./axiosInstance";
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
+import Navbar from "./Navbar";
 function Post() {
     const [data, setData] = useState('');
     const [loading, setLoading] = useState(false);
@@ -43,29 +44,37 @@ function Post() {
       };
     
   return(
-    <div>
+    <>
+    <Navbar/>
+    <br></br>
+    
+    <div className="container" style={{backgroundColor: 'f7f3ee'}}>
+      <h1>Make a Post!</h1>
         <form onSubmit={handlePost}>
-        <label htmlFor="text">Title:</label>
         <input
           type="text"
           id="title"
           value={title}
+          placeholder="Enter Title"
           onChange={(e) => setTitle(e.target.value)}
           required
         />
-        <label htmlFor="text">Content:</label>
         <input
           type="text"
           id="data"
           value={data}
+          placeholder="Enter Content"
           onChange={(e) => setData(e.target.value)}
         />
          <input type="file" onChange={handleFileChange}/>
         <button type="submit">Post</button>
       </form>
       {loading && <p>Loading...</p>}
+      <br></br>
       <button onClick={goBack}>back</button>
     </div>
+    </>
+    
   )
 }
 

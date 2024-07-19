@@ -17,7 +17,7 @@ const RenderPost = ({ item }) => {
           }
         }
         fetchData()
-    });
+    },[item]);
 
     const updateLikes=async (e)=>{
         e.preventDefault();
@@ -34,19 +34,18 @@ const RenderPost = ({ item }) => {
     
     return (
         <div className="post-container">
-        <h3>{item.title}</h3>
-        <Link to={"/Other_profile"} state={{"item":item}}>
-          <p>User: {username}</p>
-        </Link>
-        <p>Date: {item.date}</p>
-        <p>{item.data}</p>
+        <h2>{item.title}</h2>
+        <Link to={"/Other_profile"} state={{"item":item}} style={{ textDecoration: 'none', display: 'inline-block', padding: '5px 10px', borderRadius: '5px', color:'black' }}>
+  <p style={{ margin: '0', fontWeight: 'bold' }}>{username}</p>
+</Link>
+        <p style={{ color: '#888' }}>{item.date}</p>
         <img src={item.image} alt=''/>
-        <p>{item.caption}</p>
+        <p><strong>AI Generated:</strong> {item.caption}</p>
         <button className="like-button" onClick={updateLikes}>
       <FontAwesomeIcon icon={faThumbsUp} style={{ marginRight: '5px' }} />
       {likes}
     </button>
-        <button onClick={goToComments}>Comments</button>
+        <button style={{ marginLeft: '10px' }}onClick={goToComments}>Comments</button>
       </div>
     );
   }

@@ -58,22 +58,7 @@ const follow=async (e)=>{
           </li>
         ))}
       </ul>
-      <p>Followers:</p>
-      <ul>
-        {followers && followers.map((follower) => (
-          <li>
-            <p>{follower.username}</p> 
-          </li>
-        ))}
-      </ul>
-      <p>Following:</p>
-      <ul>
-        {following && following.map((follow) => (
-          <li>
-            { <p>{follow.username}</p> }
-          </li>
-        ))}
-      </ul>
+      
     </div>
   );
 };

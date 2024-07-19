@@ -1,6 +1,8 @@
 import React from 'react';
 import axiosInstance from './axiosInstance';
 import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 const RenderComment = ({ item }) => {
     const [username, setUsername] = useState('');
     const [likes, setLikes]=useState(item.likes)
@@ -23,13 +25,20 @@ const RenderComment = ({ item }) => {
        
     
     return (
-      <div className="comment-container">
-      <p className="comment-user">User: {username}</p>
-      <p className="comment-date">Date: {item.date}</p>
+      <div className="comment-container" style={{ 
+        border: '1px solid #ccc',
+        borderRadius: '5px',
+        padding: '10px',
+        marginBottom: '10px',
+        width: 'calc(100vw - 40px)', // Adjust width to fit the screen minus padding
+        marginLeft: '20px' // Left indent the text
+      }}>
+      <p className="comment-user"> <strong>{username}</strong> </p>
+      <p className="comment-date"style={{ color: '#888' }}>{item.date}</p>
       <p className="comment-content">{item.content}</p>
-      <p className="comment-likes">Likes: {likes}</p>
       <button className="like-button" onClick={updateLikes}>
-        Add Like
+      <FontAwesomeIcon icon={faThumbsUp} style={{ marginRight: '5px' }} />
+      {likes}
       </button>
     </div>
     );

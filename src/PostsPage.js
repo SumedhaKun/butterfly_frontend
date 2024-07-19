@@ -31,8 +31,9 @@ function PostsPage() {
   return (
     <>
     <Navbar />
-    <div className="container" style={{ backgroundColor: 'lightblue' }}>
-      <h1>Butterfly</h1>
+    <div className="container" style={{ backgroundColor: 'black' }}>
+      <br></br>
+    <button onClick={createPost}>Create Post</button>
       <ul className="post-list">
         {components.map((component) => (
           <li key={component.pk}>
@@ -40,7 +41,7 @@ function PostsPage() {
           </li>
         ))}
       </ul>
-      <button onClick={createPost}>Create Post</button>
+      
     </div>
   </>
   );
