@@ -25,10 +25,10 @@ function Post() {
         const res=await axiosInstance.post("/posts/",formData)
         if(selectedFile){
           const image=res.data.image
-          const res2=await axios.post("https://a5b5-2600-1700-78ee-290-c066-c273-d98-b199.ngrok-free.app/caption/",{"image":image},{
-            headers:{
-              "ngrok-skip-browser-warning":true
-            }
+          const res2=await axios.post("https://butterflyai.netlify.app/caption/",{"image":image},{
+            // headers:{
+            //   "ngrok-skip-browser-warning":true
+            // }
           });
           await axiosInstance.patch("/caption/"+res.data.pk+"/",{"caption":res2.data.caption})
         }
