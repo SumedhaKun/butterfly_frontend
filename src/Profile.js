@@ -34,15 +34,16 @@ const handleLogout=async (e)=>{
 }
 
   return (
-    <div>
+    <div style={{backgroundColor:'#282c34'}}>
     <Navbar/>
+   
     <div className="profile-container">
+    <img src="/profilepic.png" alt="Profile" className="profile-icon" />
       <h2>Username: {username}</h2>
-      <p>Email: {email}</p>
+      <p>Email: {email}</p><br></br>
       <button onClick={handleLogout}>Logout</button>
-    </div>
-    
-    <div className="centered-container">
+      <br></br><br></br>
+      <div className="centered-container">
             <p><strong>Followers:</strong></p>
             <ul>
                 {followers.map((follower) => (
@@ -60,6 +61,9 @@ const handleLogout=async (e)=>{
                 ))}
             </ul>
         </div>
+    </div>
+    
+    
     </div>
   );
 };
