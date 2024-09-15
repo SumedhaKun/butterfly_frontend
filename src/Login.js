@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react';
 import Navbar from './Navbar';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 const Login = () => {
@@ -9,19 +11,23 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-          const res=axios.post("https://butterfly-backend.onrender.com/api/login/",{"username":username, "password":password}).then(function (response) {
-            console.log(response);
-            navigate('/posts_page')
-            console.log(response.data.token)
-            localStorage.setItem('token', response.data.token);
-          })
-
-          if(res.status===400){
-            alert('incorrect password or username')
+          try{
+            const res=await axios.post("https://butterfly-backend.onrender.com/api/login/",{"username":username, "password":password})
+            console.log(res.status)
+            if(res.status==200)
+                {console.log(res);
+                  navigate('/posts_page')
+                  console.log(res.data.token)
+                  localStorage.setItem('token', res.data.token);}
+            else{
+              toast.error('incorrect password or username')
+            }
+      
+          } catch (error){
+              toast.error('incorrect password or username')
           }
-
           
   };
 
